@@ -1,4 +1,4 @@
-# AlibabaCloud-CSharp-sdk
+# AlibabaCloud.TairSDK
 
 English | [简体中文](./README-CN.md)
 

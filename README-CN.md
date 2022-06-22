@@ -1,4 +1,4 @@
-# AlibabaCloud-CSharp-sdk
+# AlibabaCloud.TairSDK
 
 ## 概述
 基于 StackExchange.Redis 封装，用于操作 [云数据库Redis企业版](https://help.aliyun.com/document_detail/145957.html) 的客户端，支持企业版多种 [Module](https://help.aliyun.com/document_detail/146579.html) 的操作命令即部分高级特性。
