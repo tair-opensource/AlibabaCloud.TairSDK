@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.810.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlibabaCloud.TairSDK", "AlibabaCloud.TairSDK\AlibabaCloud.TairSDK.csproj", "{9FA6C940-16A6-4BD9-B396-55CAE1C78AC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlibabaCloud.TairSDK.Tests", "AlibabaCloud.TairSDK.Tests\AlibabaCloud.TairSDK.Tests.csproj", "{D8765C90-425A-4600-B324-025A34C3DB57}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9FA6C940-16A6-4BD9-B396-55CAE1C78AC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FA6C940-16A6-4BD9-B396-55CAE1C78AC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FA6C940-16A6-4BD9-B396-55CAE1C78AC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FA6C940-16A6-4BD9-B396-55CAE1C78AC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8765C90-425A-4600-B324-025A34C3DB57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8765C90-425A-4600-B324-025A34C3DB57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8765C90-425A-4600-B324-025A34C3DB57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8765C90-425A-4600-B324-025A34C3DB57}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5A974294-606E-4CC1-AD4D-0C48C4B5C670}
+	EndGlobalSection
+EndGlobal
