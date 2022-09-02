@@ -1,4 +1,6 @@
-﻿namespace AlibabaCloud.TairSDK
+﻿using System.IO.Pipelines;
+
+namespace AlibabaCloud.TairSDK
 {
     public static class ModuleCommand
     {
@@ -14,8 +16,6 @@
         public const string EXINCRBYFLOAT = "EXINCRBYFLOAT";
         public const string EXCAS = "EXCAS";
         public const string EXCAD = "EXCAD";
-        public const string EXAPPEND = "EXAPPEND";
-        public const string EXPREPEND = "ECPEREPEND";
 
         // TairHash command
         public const string EXHSET = "EXHSET";
@@ -57,6 +57,7 @@
         public const string TFTGETINDEX = "TFT.GETINDEX";
         public const string TFTGETDOC = "TFT.GETDOC";
         public const string TFTSEARCH = "TFT.SEARCH";
+        public const string TFTMSEARCH = "TFT.MSEARCH";
         public const string TFTEXISTS = "TFT.EXISTS";
         public const string TFTSCANDOCID = "TFT.SCANDOCID";
         public const string TFTDOCNUM = "TFT.DOCNUM";
@@ -147,7 +148,38 @@
         public const string TRJACCARD = "TR.JACCARD";
         public const string TRCONTAINS = "TR.CONTAINS";
         public const string TRRANK = "TR.RANK";
-        public const string TRLOADSTRING = "TR.LOADSTRING";
-        public const string TRDIFF = "TR.DIFF";
+
+
+        //taircpc
+        public const string CPCUPDATE = "CPC.UPDATE";
+        public const string CPCESTIMATE = "CPC.ESTIMATE";
+        public const string CPCUPDATE2EST = "CPC.UPDATE2EST";
+        public const string CPCUPDATE2JUD = "CPC.UPDATE2JUD";
+        public const string CPCARRAYUPDATE = "CPC.ARRAY.UPDATE";
+        public const string CPCARRAYESTIMATE = "CPC.ARRAY.ESTIMATE";
+        public const string CPCARRAYESTIMATERANGE = "CPC.ARRAY.ESTIMATE.RANGE";
+        public const string CPCARRAYESTIMATERANGEMERGE = "CPC.ARRAY.ESTIMATE.RANGE.MERGE";
+        public const string CPCARRAYUPDATE2EST = "CPC.ARRAY.UPDATE2EST";
+        public const string CPCARRAYUPDATE2JUD = "CPC.ARRAY.UPDATE2JUD";
+
+        //tairts
+        public const string TSPCREATE = "EXTS.P.CREATE";
+        public const string TSSCREATE = "EXTS.S.CREATE";
+        public const string TSSALTER = "EXTS.S.ALTER";
+        public const string TSSADD = "EXTS.S.ADD";
+        public const string TSSMADD = "EXTS.S.MADD";
+        public const string TSSINCRBY = "EXTS.S.INCRBY";
+        public const string TSSMINCRBY = "EXTS.S.MINCRBY";
+        public const string TSSDEL = "EXTS.S.DEL";
+        public const string TSSGET = "EXTS.S.GET";
+        public const string TSSINFO = "EXTS.S.INFO";
+        public const string TSSQUERYINDEX = "EXTS.S.QUERYINDEX";
+        public const string TSSRANGE = "EXTS.S.RANGE";
+        public const string TSSMRANGE = "EXTS.S.MRANGE";
+        public const string TSPRANGE = "EXTS.P.RANGE";
+        public const string TSSRAWMODIFY = "EXTS.S.RAW_MODIFY";
+        public const string TSSRAWMULTIMODIFY = "EXTS.S.RAW_MMODIFY";
+        public const string TSSRAWINCTBY = "EXTS.S.RAW_INCRBY";
+        public const string TSSRAWMULTIINCRBY = "EXTS.S.RAW_MINCRBY";
     }
 }

@@ -1,4 +1,4 @@
-# AlibabaCloud.TairSDK
+# AlibabaCloud-CSharp-sdk
 
 ## 概述
 基于 StackExchange.Redis 封装，用于操作 [云数据库Redis企业版](https://help.aliyun.com/document_detail/145957.html) 的客户端，支持企业版多种 [Module](https://help.aliyun.com/document_detail/146579.html) 的操作命令即部分高级特性。
@@ -11,6 +11,8 @@
 * [TairBloom](https://help.aliyun.com/document_detail/145972.html), 支持动态扩容的布隆过滤器。（待开源）
 * [TairRoaring](https://help.aliyun.com/document_detail/311433.html), Roaring Bitmap, 使用少量的存储空间来实现海量数据的查询优化。（待开源）
 * [TairSearch](https://help.aliyun.com/document_detail/417908.html)，支持 ES-LIKE 语法的全文索引和搜索模块。（待开源） 
+* [TairCpc](https://help.aliyun.com/document_detail/410587.html), 基于CPC（Compressed Probability Counting）压缩算法开发的数据结构，支持仅占用很小的内存空间对采样数据进行高性能计算。（待开源）
+* [TairTs](https://help.aliyun.com/document_detail/408954.html), 时序数据结构，提供低时延、高并发的内存读写访问。（待开源）
 
 ## 安装
 本组件是基于 .NET Core 5.0 和 StackExchange.Redis2.5.61 开发，所以用户在使用过程注意安装的 .NET 版本。
