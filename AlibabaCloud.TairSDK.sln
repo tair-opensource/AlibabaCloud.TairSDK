@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlibabaCloud.TairSDK", "Ali
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlibabaCloud.TairSDK.Tests", "AlibabaCloud.TairSDK.Tests\AlibabaCloud.TairSDK.Tests.csproj", "{D8765C90-425A-4600-B324-025A34C3DB57}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example", "Example\Example.csproj", "{609294A0-F6C2-47C1-AB41-967819EF4746}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D8765C90-425A-4600-B324-025A34C3DB57}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8765C90-425A-4600-B324-025A34C3DB57}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8765C90-425A-4600-B324-025A34C3DB57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{609294A0-F6C2-47C1-AB41-967819EF4746}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{609294A0-F6C2-47C1-AB41-967819EF4746}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{609294A0-F6C2-47C1-AB41-967819EF4746}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{609294A0-F6C2-47C1-AB41-967819EF4746}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

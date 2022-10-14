@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\AlibabaCloud.TairSDK\AlibabaCloud.TairSDK.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="FraudPrevention.cs" />
+      <Compile Remove="FullTextSearch.cs" />
+      <Compile Remove="GamePackage.cs" />
+      <Compile Remove="JSONDocument.cs" />
+      <Compile Remove="LeaderBoard.cs" />
+      <Compile Remove="CrowdSelection.cs" />
+      <Compile Remove="PasswordExpire.cs" />
+      <Compile Remove="BargainRush.cs" />
+      <Compile Remove="BitCount.cs" />
+      <Compile Remove="BloomFilter.cs" />
+      <Compile Remove="CarTrack.cs" />
+      <Compile Remove="CpuCurve.cs" />
+    </ItemGroup>
+
+</Project>
