@@ -8,6 +8,13 @@ public class JSONDocument
     private static readonly ConnectionMultiplexer connDC = ConnectionMultiplexer.Connect("localhost:6379");
     private static readonly TairDoc tairDoc = new(connDC, 0);
 
+    /// <summary>
+    /// Save JSON in key at path.
+    /// </summary>
+    /// <param name="key"></param>
+    /// <param name="path"></param>
+    /// <param name="json"></param>
+    /// <returns></returns>
     public static bool jsonSave(string key, string path, string json)
     {
         try
@@ -26,6 +33,12 @@ public class JSONDocument
         return false;
     }
 
+    /// <summary>
+    /// Get JSON elements from path
+    /// </summary>
+    /// <param name="key"></param>
+    /// <param name="path"></param>
+    /// <returns></returns>
     public static string jsonGet(string key, string path)
     {
         try

@@ -13,9 +13,7 @@
 
     <ItemGroup>
       <Compile Remove="FraudPrevention.cs" />
-      <Compile Remove="FullTextSearch.cs" />
       <Compile Remove="GamePackage.cs" />
-      <Compile Remove="JSONDocument.cs" />
       <Compile Remove="LeaderBoard.cs" />
       <Compile Remove="CrowdSelection.cs" />
       <Compile Remove="PasswordExpire.cs" />
@@ -28,6 +26,10 @@
       <Compile Remove="CarTrack.cs" />
       <Compile Remove="DeviceLogin.cs" />
       <Compile Remove="LbsBuy.cs" />
+      <Compile Remove="MultiIndexSearch.cs" />
+      <Compile Remove="FullTextSearch.cs" />
+      <Compile Remove="JSONDocument.cs" />
+      <Compile Remove="DistributedLock.cs" />
     </ItemGroup>
 
 </Project>

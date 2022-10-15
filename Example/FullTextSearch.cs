@@ -8,6 +8,12 @@ public class FullTextSearch
     private static readonly ConnectionMultiplexer connDC = ConnectionMultiplexer.Connect("localhost:6379");
     private static readonly TairSearch tairSearch = new(connDC, 0);
 
+    /// <summary>
+    /// create index, The field of index is parsed according to the field corresponding to the text.
+    /// </summary>
+    /// <param name="index"></param>
+    /// <param name="schema"></param>
+    /// <returns></returns>
     public static bool createIndex(string index, string schema)
     {
         try
@@ -22,6 +28,12 @@ public class FullTextSearch
         }
     }
 
+    /// <summary>
+    /// Add doc to index, doc is JSON format.
+    /// </summary>
+    /// <param name="index"></param>
+    /// <param name="doc"></param>
+    /// <returns></returns>
     public static string addDoc(string index, string doc)
     {
         try
@@ -35,6 +47,12 @@ public class FullTextSearch
         }
     }
 
+    /// <summary>
+    /// search index by request.
+    /// </summary>
+    /// <param name="index"></param>
+    /// <param name="request"></param>
+    /// <returns></returns>
     public static string searchIndex(string index, string request)
     {
         try
