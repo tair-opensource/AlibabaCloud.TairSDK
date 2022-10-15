@@ -20,10 +20,14 @@
       <Compile Remove="CrowdSelection.cs" />
       <Compile Remove="PasswordExpire.cs" />
       <Compile Remove="BargainRush.cs" />
-      <Compile Remove="BitCount.cs" />
       <Compile Remove="BloomFilter.cs" />
-      <Compile Remove="CarTrack.cs" />
       <Compile Remove="CpuCurve.cs" />
+      <Compile Remove="BoundedCounter.cs" />
+      <Compile Remove="BitCount.cs" />
+      <Compile Remove="CrawlerSystem.cs" />
+      <Compile Remove="CarTrack.cs" />
+      <Compile Remove="DeviceLogin.cs" />
+      <Compile Remove="LbsBuy.cs" />
     </ItemGroup>
 
 </Project>
