@@ -360,6 +360,27 @@ namespace TestSearchTest
         }
 
         [Test]
+        public void tftmsearchtest()
+        {
+            db.KeyDelete("{index1}");
+            db.KeyDelete("{index2}");
+            tair.tftmappingindex("{index1}",
+                "{\"mappings\": {\"_source\": {\"enabled\": true },\"properties\": {\"product_id\": {\"type\": \"keyword\", \"ignore_above\": 128 },\"product_name\": { \"type\": \"text\" },\"product_title\": { \"type\": \"text\", \"analyzer\": \"jieba\" },\"price\": { \"type\": \"double\" }}}}");
+            tair.tftmappingindex("{index2}",
+                "{\"mappings\": {\"_source\": {\"enabled\": true },\"properties\": {\"product_id\": {\"type\": \"keyword\", \"ignore_above\": 128 },\"product_name\": { \"type\": \"text\" },\"product_title\": { \"type\": \"text\", \"analyzer\": \"jieba\" },\"price\": { \"type\": \"double\" }}}}");
+            tair.tftadddoc("{index1}", "{\"product_id\":\"test1\"}", "00001");
+            tair.tftadddoc("{index1}", "{\"product_id\":\"test2\"}", "00002");
+            tair.tftadddoc("{index2}", "{\"product_id\":\"test3\"}", "00003");
+            tair.tftadddoc("{index2}", "{\"product_id\":\"test4\"}", "00004");
+
+            string want =
+                @"{""hits"":{""hits"":[{""_id"":""00001"",""_index"":""{index1}"",""_score"":1.0,""_source"":{""product_id"":""test1""}},{""_id"":""00002"",""_index"":""{index1}"",""_score"":1.0,""_source"":{""product_id"":""test2""}},{""_id"":""00003"",""_index"":""{index2}"",""_score"":1.0,""_source"":{""product_id"":""test3""}},{""_id"":""00004"",""_index"":""{index2}"",""_score"":1.0,""_source"":{""product_id"":""test4""}}],""max_score"":1.0,""total"":{""relation"":""eq"",""value"":4}},""aux_info"":{""index_crc64"":5843875291690071373}}";
+            string[] index = {"{index1}", "{index2}"};
+            string result = tair.tftmsearch(2, index, "{\"sort\":[{\"price\":{\"order\":\"desc\"}}]}");
+            Assert.AreEqual(want, result);
+        }
+
+        [Test]
         public void tftmaddteststring()
         {
             db.KeyDelete("tftkey");

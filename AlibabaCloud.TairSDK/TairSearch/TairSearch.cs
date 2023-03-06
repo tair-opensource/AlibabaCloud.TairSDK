@@ -361,6 +361,22 @@ namespace AlibabaCloud.TairSDK.TairSearch
 
             return ResultHelper.String(obj);
         }
+        
+        public string tftmsearch(int index_count, string[] index, string query)
+        {
+            TFTMSearchParams param = new TFTMSearchParams();
+            RedisResult obj;
+            obj = getRedis().Execute(ModuleCommand.TFTMSEARCH, param.getByteParams(index_count, index, query));
+            return ResultHelper.String(obj);
+        }
+
+        public string tftmsearch(int index_count, byte[][] index, byte[] query)
+        {
+            TFTMSearchParams param = new TFTMSearchParams();
+            RedisResult obj;
+            obj = getRedis().Execute(ModuleCommand.TFTMSEARCH, param.getByteParams(index_count, index, query));
+            return ResultHelper.String(obj);
+        }
 
         /// <summary>
         /// Checks if the specified document exists in the index.
