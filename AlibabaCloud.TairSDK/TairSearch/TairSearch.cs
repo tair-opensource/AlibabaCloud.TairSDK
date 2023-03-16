@@ -436,5 +436,34 @@ namespace AlibabaCloud.TairSDK.TairSearch
                 param.getByteParams(index, cursor));
             return SearchHelper.ScanResultByte(obj);
         }
+
+        /// <summary>
+        /// Debug analyzer.
+        /// </summary>
+        /// <param name="analyzerName">the analyzer name</param>
+        /// <param name="text">the text to be tokenized</param>
+        /// <returns>Success: Token information</returns>
+        public string tftanalyzer(string analyzerName, string text)
+        {
+            return tftanalyzer(Encoding.UTF8.GetBytes(analyzerName), Encoding.UTF8.GetBytes(text));
+        }
+
+        public string tftanalyzer(byte[] analyzerName, byte[] text)
+        {
+            // byte[] key = getRedis().KeyRandom();
+            var obj = getRedis().Execute(ModuleCommand.TFTANALYZER, analyzerName, text);
+            return ResultHelper.String(obj);
+        }
+
+        public string tftanalyzer(string analyzerName, string text, TFTAnalyzerParams param)
+        {
+            return tftanalyzer(Encoding.UTF8.GetBytes(analyzerName), Encoding.UTF8.GetBytes(text), param);
+        }
+
+        public string tftanalyzer(byte[] analyzerName, byte[] text, TFTAnalyzerParams param)
+        {
+            var obj = getRedis().Execute(ModuleCommand.TFTANALYZER, param.getByteParams(analyzerName, text));
+            return ResultHelper.String(obj);
+        }
     }
 }

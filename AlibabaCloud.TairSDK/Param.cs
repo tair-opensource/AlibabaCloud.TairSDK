@@ -9,8 +9,12 @@ namespace AlibabaCloud.TairSDK
         public object getParams(string name)
         {
             if (param == null) return null;
+            if (param.ContainsKey(name))
+            {
+                return param[name];
+            }
 
-            return param[name];
+            return null;
         }
 
         protected void addParam(string name)
