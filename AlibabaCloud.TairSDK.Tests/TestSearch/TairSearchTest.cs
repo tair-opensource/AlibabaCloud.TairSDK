@@ -521,5 +521,25 @@ namespace TestSearchTest
                 res);
             Assert.True(res.Contains("key-value数据结构存储"));
         }
+
+        [Test]
+        public void explaincost()
+        {
+            db.KeyDelete("tftkey");
+            String ret = tair.tftcreateindex("tftkey",
+                "{\"mappings\":{\"dynamic\":\"false\",\"properties\":{\"f0\":{\"type\":\"text\"}}}}");
+            Assert.AreEqual(ret, "OK");
+
+            tair.tftadddoc("tftkey", "{\"f0\":\"redis is a nosql database\"}", "1");
+            Assert.AreEqual(
+                "{\"hits\":{\"hits\":[{\"_id\":\"1\",\"_index\":\"tftkey\",\"_score\":0.153426,\"_source\":{\"f0\":\"redis is a nosql database\"}}],\"max_score\":0.153426,\"total\":{\"relation\":\"eq\",\"value\":1}}}",
+                tair.tftsearch("tftkey", "{\"query\":{\"term\":{\"f0\":\"redis\"}}}"));
+            tair.tftadddoc("tftkey", "{\"f0\":\"redis is an in-memory database that persists on disk\"}", "2");
+            tair.tftadddoc("tftkey", "{\"f0\":\"redis supports many different kind of values\"}", "3");
+
+            String response = tair.tftexplaincost("tftkey", "{\"query\":{\"match\":{\"f0\":\"3\"}}}");
+
+            Assert.True(response.Contains("QUERY_COST"));
+        }
     }
 }
