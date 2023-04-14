@@ -481,5 +481,22 @@ namespace AlibabaCloud.TairSDK.TairSearch
             var obj = getRedis().Execute(ModuleCommand.TFTANALYZER, param.getByteParams(analyzerName, text));
             return ResultHelper.String(obj);
         }
+        
+        /// <summary>
+        /// explain the cost of every query phase.
+        /// </summary>
+        /// <param name="index">index name</param>
+        /// <param name="request">query clause</param>
+        /// <returns>Token information</returns>
+        public string tftexplaincost(string index, string request)
+        {
+            return tftexplaincost(Encoding.UTF8.GetBytes(index),Encoding.UTF8.GetBytes(request));
+        }
+
+        public string tftexplaincost(byte[] index, byte[] request)
+        {
+            var obj = getRedis().Execute(ModuleCommand.TFTEXPLAINCOST, index, request);
+            return ResultHelper.String(obj);
+        }
     }
 }

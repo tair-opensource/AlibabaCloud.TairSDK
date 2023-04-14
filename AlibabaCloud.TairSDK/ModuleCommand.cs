@@ -65,6 +65,7 @@ namespace AlibabaCloud.TairSDK
         public const string TFTINCRFLOATDOCFIELD = "TFT.INCRFLOATDOCFIELD";
         public const string TFTDELDOCFIELD = "TFT.DELDOCFIELD";
         public const string TFTANALYZER = "TFT.ANALYZER";
+        public const string TFTEXPLAINCOST = "TFT.EXPLAINCOST";
 
         //TairDoc
         public const string JSONDEL = "JSON.DEL";
