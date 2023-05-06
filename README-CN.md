@@ -7,7 +7,7 @@
 * [TairHash](https://help.aliyun.com/document_detail/145970.html)，可实现 field 级别的过期。（已[开源](https://github.com/alibaba/TairHash)）
 * [TairZset](https://help.aliyun.com/document_detail/292812.html), 支持多维排序。(已[开源](https://github.com/alibaba/TairZset))
 * [TairDoc](https://help.aliyun.com/document_detail/145940.html), 支持存储`JSON`类型。（待开源）
-* [TairGis](https://help.aliyun.com/document_detail/145971.html), 支持地理位置点、线、面的相交、包含等关系判断。（待开源）
+* [TairGis](https://help.aliyun.com/document_detail/145971.html), 支持地理位置点、线、面的相交、包含等关系判断。（已[开源](https://github.com/tair-opensource/TairGis)）
 * [TairBloom](https://help.aliyun.com/document_detail/145972.html), 支持动态扩容的布隆过滤器。（待开源）
 * [TairRoaring](https://help.aliyun.com/document_detail/311433.html), Roaring Bitmap, 使用少量的存储空间来实现海量数据的查询优化。（待开源）
 * [TairSearch](https://help.aliyun.com/document_detail/417908.html)，支持 ES-LIKE 语法的全文索引和搜索模块。（待开源） 
