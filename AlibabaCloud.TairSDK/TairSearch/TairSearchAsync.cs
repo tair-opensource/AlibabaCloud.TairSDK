@@ -421,5 +421,21 @@ namespace AlibabaCloud.TairSDK.TairSearch
             var obj = getRedis().ExecuteAsync(ModuleCommand.TFTEXPLAINCOST, index, request);
             return obj;
         }
+        
+        public Task<RedisResult> tftexplainscore(string index, string request, params string[] docIds)
+        {
+            TFTExplainScoreParams param = new TFTExplainScoreParams();
+            var obj = getRedis()
+                .ExecuteAsync(ModuleCommand.TFTEXPLAINSCORE, param.getbyteParams(index, request, docIds));
+            return obj;
+        }
+
+        public Task<RedisResult> tftexplainscore(byte[] index, byte[] request, params byte[][] docIds)
+        {
+            TFTExplainScoreParams param = new TFTExplainScoreParams();
+            var obj = getRedis()
+                .ExecuteAsync(ModuleCommand.TFTEXPLAINSCORE, param.getbyteParams(index, request, docIds));
+            return obj;
+        }
     }
 }
