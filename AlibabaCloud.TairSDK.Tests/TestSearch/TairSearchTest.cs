@@ -541,5 +541,18 @@ namespace TestSearchTest
 
             Assert.True(response.Contains("QUERY_COST"));
         }
+        
+        [Test]
+        public void tftexplainscore() {
+            db.KeyDelete("tftkey");
+            String ret = tair.tftcreateindex("tftkey", "{\"mappings\":{\"dynamic\":\"false\",\"properties\":{\"f0\":{\"type\":\"text\"}}}}");
+            Assert.AreEqual(ret, "OK");
+            tair.tftadddoc("tftkey", "{\"f0\":\"redis is a nosql database\"}", "1");
+           
+            String response = tair.tftexplainscore("tftkey", "{\"query\":{\"term\":{\"f0\":\"redis\"}}}");
+            Assert.AreEqual("{\"hits\":{\"hits\":[{\"_id\":\"1\",\"_index\":\"tftkey\",\"_score\":0.054363,\"_source\":{\"f0\":\"redis is a nosql database\"},\"_explanation\":{\"score\":0.054363,\"description\":\"score, computed as query_boost * idf * idf * tf\",\"field\":\"f0\",\"term\":\"redis\",\"query_boost\":1.0,\"details\":[{\"value\":0.306853,\"description\":\"idf, computed as 1 + log(N / (n + 1))\",\"details\":[{\"value\":1,\"description\":\"n, number of documents containing term\"},{\"value\":1,\"description\":\"N, total number of documents\"}]},{\"value\":0.57735,\"description\":\"tf, computed as sqrt(freq) / sqrt(dl)\",\"details\":[{\"value\":1,\"description\":\"freq, occurrences of term within document\"},{\"value\":3,\"description\":\"dl, length of field\"}]}]}}],\"max_score\":0.054363,\"total\":{\"relation\":\"eq\",\"value\":1}}}", response);
+            String result = tair.tftexplainscore("tftkey", "{\"query\":{\"term\":{\"f0\":\"redis\"}}}", "0", "1", "2");
+            Assert.AreEqual(result, response);
+        }
     }
 }

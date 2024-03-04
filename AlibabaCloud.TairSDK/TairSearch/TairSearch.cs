@@ -498,5 +498,26 @@ namespace AlibabaCloud.TairSDK.TairSearch
             var obj = getRedis().Execute(ModuleCommand.TFTEXPLAINCOST, index, request);
             return ResultHelper.String(obj);
         }
+        
+        /// <summary>
+        /// explain the score of query.
+        /// </summary>
+        /// <param name="index"> the index name</param>
+        /// <param name="request"> the query clause</param>
+        /// <param name="docIds"> the document ids</param>
+        /// <returns>Success: Search result with score explanation</returns>
+        public string tftexplainscore(string index, string request, params string[] docIds)
+        {
+            TFTExplainScoreParams param = new TFTExplainScoreParams();
+            var obj = getRedis().Execute(ModuleCommand.TFTEXPLAINSCORE, param.getbyteParams(index, request, docIds));
+            return ResultHelper.String(obj);
+        }
+
+        public string tftexplainscore(byte[] index, byte[] request, params byte[][] docIds)
+        {
+            TFTExplainScoreParams param = new TFTExplainScoreParams();
+            var obj = getRedis().Execute(ModuleCommand.TFTEXPLAINSCORE, param.getbyteParams(index, request, docIds));
+            return ResultHelper.String(obj);
+        }
     }
 }
