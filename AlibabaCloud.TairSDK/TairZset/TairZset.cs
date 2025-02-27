@@ -66,6 +66,33 @@ namespace AlibabaCloud.TairSDK.TairZset
             return ResultHelper.Long(obj);
         }
 
+        public long exzadd(string key, Dictionary<string, double> elements)
+        {
+            var param = new List<byte[]> { Encoding.UTF8.GetBytes(key) };
+            foreach (var element in elements)
+            {
+                param.Add(Encoding.UTF8.GetBytes(element.Value.ToString()));
+                param.Add(Encoding.UTF8.GetBytes(element.Key));
+            }
+
+            var obj = getRedis().Execute(ModuleCommand.EXZADD, param.ToArray());
+            return ResultHelper.Long(obj);
+        }
+
+        public long exzadd(string key, Dictionary<string, double> elements, ExzaddParams param)
+        {
+            var byteParams = new List<byte[]>(elements.Count * 2);
+            foreach (var element in elements)
+            {
+                byteParams.Add(Encoding.UTF8.GetBytes(element.Value.ToString()));
+                byteParams.Add(Encoding.UTF8.GetBytes(element.Key));
+            }
+
+            var obj = getRedis().Execute(ModuleCommand.EXZADD,
+                param.getByteParams(Encoding.UTF8.GetBytes(key), byteParams.ToArray()));
+            return ResultHelper.Long(obj);
+        }
+
         /// <summary>
         /// Increments the score of member int the tairzset stored at key by increment.
         /// </summary>
