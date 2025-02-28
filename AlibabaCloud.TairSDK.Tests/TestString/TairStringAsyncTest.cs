@@ -49,7 +49,7 @@ namespace TestStringTest
             var ret2 = tairStringAsync.exset(key2, value2, params_nx);
             var ret4 = tairStringAsync.exget(key2);
 
-            Assert.AreEqual(null, ResultHelper.String(ret1.Result));
+            Assert.IsEmpty(ResultHelper.String(ret1.Result));
             Assert.AreEqual("OK", ResultHelper.String(ret2.Result));
             Assert.AreEqual(value2, StringHelper.GetResultString(ret4.Result).getValue());
         }

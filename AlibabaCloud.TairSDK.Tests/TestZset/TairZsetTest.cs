@@ -28,12 +28,19 @@ namespace TestZset
         public void zadd()
         {
             db.KeyDelete("foo");
+            db.KeyDelete("foo1");
             long status = tairzset.exzadd("foo", "a", 1d);
             Assert.AreEqual(1, status);
             status = tairzset.exzadd("foo", "b", 10d);
             Assert.AreEqual(1, status);
             status = tairzset.exzadd("foo", "a", 2d);
             Assert.AreEqual(0, status);
+            var ele = new Dictionary<string, double>();
+            ele.Add("a", 1);
+            ele.Add("b", 10);
+            ele.Add("c", 2);
+            status = tairzset.exzadd("foo1", ele);
+            Assert.AreEqual(3, status);
 
             //binary
             db.KeyDelete(bfoo);
@@ -49,12 +56,22 @@ namespace TestZset
         public void zaddWithParams()
         {
             db.KeyDelete("foo");
+            db.KeyDelete("foo1");
             long status = tairzset.exzadd("foo", "1", "a", new ExzaddParams().xx());
             Assert.AreEqual(0L, status);
             tairzset.exzadd("foo", "1", "a");
             status = tairzset.exzadd("foo", "2", "a", new ExzaddParams().nx());
             Assert.AreEqual(0l, status);
             Assert.AreEqual("1", tairzset.exzscore("foo", "a"));
+            
+            var ele = new Dictionary<string, double>();
+            ele.Add("a", 1);
+            ele.Add("b", 10);
+            ele.Add("c", 2);
+            status = tairzset.exzadd("foo1", ele, new ExzaddParams().ch());
+            Assert.AreEqual(3, status);
+            status = tairzset.exzadd("foo1", ele, new ExzaddParams().nx());
+            Assert.AreEqual(0, status);
         }
 
         [Test]

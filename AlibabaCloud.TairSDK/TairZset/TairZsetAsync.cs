@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Text;
 using System.Threading.Tasks;
 using AlibabaCloud.TairSDK.TairZset.Param;
@@ -62,6 +64,33 @@ namespace AlibabaCloud.TairSDK.TairZset
         public Task<RedisResult> exzadd(byte[] key, byte[] score, byte[] member, ExzaddParams param)
         {
             var obj = getRedis().ExecuteAsync(ModuleCommand.EXZADD, param.getByteParams(key, score, member));
+            return obj;
+        }
+
+        public Task<RedisResult> exzadd(string key, Dictionary<string, double> members)
+        {
+            var param = new List<byte[]> { Encoding.UTF8.GetBytes(key) };
+            foreach (var member in members)
+            {
+                param.Add(Encoding.UTF8.GetBytes(member.Value.ToString()));
+                param.Add(Encoding.UTF8.GetBytes(member.Key));
+            }
+
+            var obj = getRedis().ExecuteAsync(ModuleCommand.EXZADD, param.ToArray());
+            return obj;
+        }
+
+        public Task<RedisResult> exzadd(string key, Dictionary<string, double> elements, ExzaddParams param)
+        {
+            var byteParams = new List<byte[]>(elements.Count * 2);
+            foreach (var element in elements)
+            {
+                byteParams.Add(Encoding.UTF8.GetBytes(element.Value.ToString()));
+                byteParams.Add(Encoding.UTF8.GetBytes(element.Key));
+            }
+
+            var obj = getRedis().ExecuteAsync(ModuleCommand.EXZADD,
+                param.getByteParams(Encoding.UTF8.GetBytes(key), byteParams.ToArray()));
             return obj;
         }
 

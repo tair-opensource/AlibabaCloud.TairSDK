@@ -43,7 +43,7 @@ namespace TestDocTest
             string jsonKey = "jsonkey" + "-" + Thread.CurrentThread.Name + "-" + Guid.NewGuid().ToString("N");
             string JSON_STRING_EXAMPLE = "{\"foo\":\"bar\",\"baz\":42}";
             string ret = tair.jsonset(jsonKey, ".", JSON_STRING_EXAMPLE, JsonsetParams.jsonsetParams().xx());
-            Assert.Null(ret);
+            Assert.IsEmpty(ret);
 
             ret = tair.jsonset(jsonKey, ".", JSON_STRING_EXAMPLE, JsonsetParams.jsonsetParams().nx());
             Assert.AreEqual("OK", ret);

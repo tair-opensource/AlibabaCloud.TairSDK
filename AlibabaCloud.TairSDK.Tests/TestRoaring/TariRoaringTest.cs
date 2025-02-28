@@ -44,40 +44,40 @@ namespace TestRoaring
 
             List<long> result = tairRoaring.trgetbits("foo", 1, 2, 3, 4, 5);
             List<long> expect = new List<long>();
-            expect.Add((long) 1);
-            expect.Add((long) 0);
-            expect.Add((long) 1);
-            expect.Add((long) 0);
-            expect.Add((long) 0);
+            expect.Add((long)1);
+            expect.Add((long)0);
+            expect.Add((long)1);
+            expect.Add((long)0);
+            expect.Add((long)0);
             Assert.AreEqual(expect, result);
 
             Assert.AreEqual("OK", tairRoaring.trappendintarray("foo", 1, 2, 3));
             result = tairRoaring.trgetbits("foo", 1, 2, 3, 4, 5);
             expect.Clear();
-            expect.Add((long) 1);
-            expect.Add((long) 1);
-            expect.Add((long) 1);
-            expect.Add((long) 0);
-            expect.Add((long) 0);
+            expect.Add((long)1);
+            expect.Add((long)1);
+            expect.Add((long)1);
+            expect.Add((long)0);
+            expect.Add((long)0);
             Assert.AreEqual(expect, result);
 
             Assert.AreEqual("OK", tairRoaring.trsetintarray("foo", 2, 3));
             result = tairRoaring.trgetbits("foo", 1, 2, 3, 4, 5);
             expect.Clear();
-            expect.Add((long) 0);
-            expect.Add((long) 1);
-            expect.Add((long) 1);
-            expect.Add((long) 0);
-            expect.Add((long) 0);
+            expect.Add((long)0);
+            expect.Add((long)1);
+            expect.Add((long)1);
+            expect.Add((long)0);
+            expect.Add((long)0);
             Assert.AreEqual(expect, result);
 
             result = tairRoaring.trgetbits("foo", 1, 1, 2, 3, 3);
             expect.Clear();
-            expect.Add((long) 0);
-            expect.Add((long) 0);
-            expect.Add((long) 1);
-            expect.Add((long) 1);
-            expect.Add((long) 1);
+            expect.Add((long)0);
+            expect.Add((long)0);
+            expect.Add((long)1);
+            expect.Add((long)1);
+            expect.Add((long)1);
             Assert.AreEqual(expect, result);
 
             Assert.AreEqual(2, tairRoaring.trmin("foo"));
@@ -122,19 +122,19 @@ namespace TestRoaring
             Assert.AreEqual(0, rawresult.getCursor());
             result = rawresult.getResult();
             expect.Clear();
-            expect.Add((long) 1);
-            expect.Add((long) 3);
-            expect.Add((long) 5);
-            expect.Add((long) 7);
-            expect.Add((long) 9);
+            expect.Add((long)1);
+            expect.Add((long)3);
+            expect.Add((long)5);
+            expect.Add((long)7);
+            expect.Add((long)9);
             Assert.AreEqual(expect, result);
 
             rawresult = tairRoaring.trscan("foo", 4, 2);
             Assert.AreEqual(9, rawresult.getCursor());
             result = rawresult.getResult();
             expect.Clear();
-            expect.Add((long) 5);
-            expect.Add((long) 7);
+            expect.Add((long)5);
+            expect.Add((long)7);
             Assert.AreEqual(expect, result);
         }
 
@@ -213,8 +213,8 @@ namespace TestRoaring
             Assert.AreEqual(-1, tairRoaring.trmax("foo"));
             Assert.AreEqual(-1, tairRoaring.trbitpos("foo", "1", 1));
             Assert.AreEqual(-1, tairRoaring.trrank("foo", 1));
-            Assert.AreEqual(null, tairRoaring.trstat("foo", false));
-            Assert.AreEqual(null, tairRoaring.troptimize("foo"));
+            Assert.IsEmpty(tairRoaring.trstat("foo", false));
+            Assert.IsEmpty(tairRoaring.troptimize("foo"));
             Assert.AreEqual(0, tairRoaring.trbitcount("foo"));
             Assert.AreEqual(0, tairRoaring.trclearbits("foo", 1, 3, 5));
         }

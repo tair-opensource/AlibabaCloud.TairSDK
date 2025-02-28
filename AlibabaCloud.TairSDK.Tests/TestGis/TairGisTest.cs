@@ -104,7 +104,7 @@ namespace TestGisTest
             Assert.AreEqual(l, 1);
 
             String ret = tair.gisdel(key, "not-exists-polygon");
-            Assert.AreEqual(null, ret);
+            Assert.IsEmpty(ret);
         }
 
 

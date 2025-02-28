@@ -70,7 +70,7 @@ namespace TestStringTest
 
             //string
             ret_xx = tair.exset(key, value, params_xx);
-            Assert.Null(ret_xx);
+            Assert.IsEmpty(ret_xx);
             ret_nx = tair.exset(key, value, params_nx);
             Assert.AreEqual("OK", ret_nx);
             ret_xx = tair.exset(key, value, params_xx);
@@ -78,7 +78,7 @@ namespace TestStringTest
 
             //binary
             ret_xx = tair.exset(bkey, bvalue, params_xx);
-            Assert.Null(ret_xx);
+            Assert.IsEmpty(ret_xx);
             ret_nx = tair.exset(bkey, bvalue, params_nx);
             Assert.AreEqual("OK", ret_nx);
             ret_xx = tair.exset(bkey, bvalue, params_xx);
